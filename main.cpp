@@ -1,4 +1,4 @@
-/* Author: David Harney harneyd25@oregonstate.edu
+/* Author: David Harney harneyd@oregonstate.edu
    Description: Prompts user for available funds, APY values for HYSA, index funds, and I bonds,
    max insured amount for HYSA, and calculates how to invest for maximum profit, prints this strategy
    to terminal, and prints expected one year profit
@@ -18,7 +18,7 @@ int investment_funds_prompt(){
 }
 
 // Function: HYSA_insurance_max_prompt
-// Description: gets HYSA FDIC insurance max rom user. If negative value entered, will print error and default to $250,000
+// Description: gets HYSA FDIC insurance max from user. If negative value entered, will print error and default to $250,000
 // Returns: int
 int HYSA_insurance_max_prompt(){
     std::cout << "Enter the maximum dollar amount insured by your HYSA as a whole number" << std::endl;
@@ -49,7 +49,7 @@ double HYSA_APY_prompt(){
 // Description: gets I bond APY from user. If negative value entered, will print error and default to 6%
 // Returns: double
 double ibond_APY_prompt(){
-    std::cout << "Enter your I bond APY  as a number between 0 and 100" << std::endl;
+    std::cout << "Enter your I bond APY as a number between 0 and 100" << std::endl;
     double ibond_APY;
     std::cin >> ibond_APY;
     if (ibond_APY < 0){
@@ -75,15 +75,9 @@ double index_fund_APY_prompt(){
 
 
 
-
-
-
-
-
-
 int main(){
 
-    // promting user for amount of funds available for investment
+    // prompting user for amount of funds available for investment
     int investment_funds = investment_funds_prompt();
 
     // checks for positive number, will terminate program if negative
@@ -135,7 +129,7 @@ int main(){
                     }
                 }
             }
-            // case 2: Ibond APY is greatest    
+            // case 2: I bond APY is greatest    
             else if (ibond_APY >= HYSA_APY && ibond_APY >= index_fund_APY){
             if (investment_funds <= 10000){
                 // all gets invested in i bonds
@@ -165,9 +159,6 @@ int main(){
 
 
 
-
-
-
             // printing investment amounts to terminal
             std::cout << "You should invest ";
             std::cout << HYSA_invest_amount;
@@ -181,13 +172,13 @@ int main(){
 
 	    // calculating and printing expected profit
    	    double expected_profit = ((HYSA_invest_amount * HYSA_APY + ibond_invest_amount * ibond_APY + index_invest_amount * index_fund_APY)/ 100);
- 	   std::cout << "In total, these investments should earn you $";
-    	   std::cout << expected_profit;
-    	   std::cout << " over the next year." << std::endl;
+  	    std::cout << "In total, these investments should earn you $";
+    	    std::cout << expected_profit;
+    	    std::cout << " over the next year." << std::endl;
 
 
 
-    // prints error message if negative investment funds were entered in beginning off program
+    // prints error message if negative investment funds were entered in beginning of program
         }else {
              std::cout << "Error: a negative amount of funds were entered" << std::endl;
         }
