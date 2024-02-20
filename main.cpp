@@ -179,8 +179,11 @@ int main(){
             std::cout << index_invest_amount;
             std::cout << " into your target index fund." << std::endl;
 
-// TODO: calculate expected profit
-
+	    // calculating and printing expected profit
+   	    double expected_profit = ((HYSA_invest_amount * HYSA_APY + ibond_invest_amount * ibond_APY + index_invest_amount * index_fund_APY)/ 100);
+ 	   std::cout << "In total, these investments should earn you $";
+    	   std::cout << expected_profit;
+    	   std::cout << " over the next year." << std::endl;
 
 
 
